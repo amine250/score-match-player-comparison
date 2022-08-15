@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Score match players comparison">
+    <meta name="keywords" content="Score Match, players, comparison">
+    <meta name="author" content="Amine Zaine">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Score Match Players Comparison</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css"  />
+        
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/extensions/sticky-header/bootstrap-table-sticky-header.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Score Match! Players Comparison</a>
+            </div>
+        </nav>
+
+        <div class="row text-center">
+            <p>For ease of use, all of the listed stats are the MAX stats of a given player (aka level 10).</p>
+            <p>Click to select multiple players to compare their stats.</p>
+            <p>Click on a column to reorder players according to the column stat.</p>
+            <div class="col"></div>
+            <div class="col">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td class="">Normal Players</td>
+                            <td class="table-secondary">Super Players</td>
+                            <td class="table-warning">Golden Players</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div id="menu" class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-compare btn-primary" data-text-on="End Compare" data-text-off="Compare Selected">Compare Selected</button>
+                <button class="btn btn-clear btn-secondary">Clear Selections</button>
+            </div>
+        </div>
+        <div class="row">
+            <table id="data" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Player Type</th>
+                        <th scope="col">Speed</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Strength</th>
+                        <th scope="col">Power</th>
+                        <th scope="col">Skill</th>
+                        <th scope="col">Response</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Architect</td>
+                        <td>30</td>
+                        <td>15</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>140</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Bulldozer</td>
+                        <td>25</td>
+                        <td>40</td>
+                        <td>45</td>
+                        <td>40</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>195</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Commander</td>
+                        <td>20</td>
+                        <td>50</td>
+                        <td>40</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>50</td>
+                        <td>165</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td scope="row">Composer</td>
+                        <td>30</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>40</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>185</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Engine</td>
+                        <td>30</td>
+                        <td>25</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>145</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Explorer</td>
+                        <td>40</td>
+                        <td>25</td>
+                        <td>20</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>35</td>
+                        <td>140</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Gatecrasher</td>
+                        <td>40</td>
+                        <td>25</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>25</td>
+                        <td>155</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">GK-Stopper</td>
+                        <td>20</td>
+                        <td>50</td>
+                        <td>30</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>35</td>
+                        <td>235</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">GK-Sweeper</td>
+                        <td>35</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>35</td>
+                        <td>50</td>
+                        <td>190</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Guard</td>
+                        <td>30</td>
+                        <td>20</td>
+                        <td>35</td>
+                        <td>10</td>
+                        <td>15</td>
+                        <td>40</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Hammer</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>45</td>
+                        <td>40</td>
+                        <td>5</td>
+                        <td>20</td>
+                        <td>180</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td scope="row">Hitman</td>
+                        <td>35</td>
+                        <td>30</td>
+                        <td>25</td>
+                        <td>25</td>
+                        <td>40</td>
+                        <td>20</td>
+                        <td>175</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Infiltrator</td>
+                        <td>40</td>
+                        <td>20</td>
+                        <td>15</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>20</td>
+                        <td>135</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Intruder</td>
+                        <td>45</td>
+                        <td>15</td>
+                        <td>20</td>
+                        <td>10</td>
+                        <td>15</td>
+                        <td>30</td>
+                        <td>135</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Invader</td>
+                        <td>45</td>
+                        <td>30</td>
+                        <td>25</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>35</td>
+                        <td>165</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Jet</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>25</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>160</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Keeper</td>
+                        <td>25</td>
+                        <td>35</td>
+                        <td>25</td>
+                        <td>40</td>
+                        <td>40</td>
+                        <td>40</td>
+                        <td>205</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td scope="row">Lightning</td>
+                        <td>50</td>
+                        <td>40</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>15</td>
+                        <td>20</td>
+                        <td>165</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td scope="row">Magician</td>
+                        <td>30</td>
+                        <td>15</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>140</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Major</td>
+                        <td>25</td>
+                        <td>50</td>
+                        <td>40</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>50</td>
+                        <td>185</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Marksman</td>
+                        <td>35</td>
+                        <td>25</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td>40</td>
+                        <td>25</td>
+                        <td>185</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Menace</td>
+                        <td>35</td>
+                        <td>25</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>170</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Poacher</td>
+                        <td>35</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>30</td>
+                        <td>25</td>
+                        <td>50</td>
+                        <td>185</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Producer</td>
+                        <td>30</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>25</td>
+                        <td>40</td>
+                        <td>20</td>
+                        <td>160</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Protector</td>
+                        <td>30</td>
+                        <td>40</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>170</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Prowler</td>
+                        <td>35</td>
+                        <td>15</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>15</td>
+                        <td>50</td>
+                        <td>155</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td scope="row">Raider</td>
+                        <td>45</td>
+                        <td>40</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>35</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Speedster</td>
+                        <td>50</td>
+                        <td>10</td>
+                        <td>15</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>120</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td scope="row">Thunder</td>
+                        <td>25</td>
+                        <td>40</td>
+                        <td>45</td>
+                        <td>40</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>180</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Voyager</td>
+                        <td>40</td>
+                        <td>35</td>
+                        <td>25</td>
+                        <td>10</td>
+                        <td>15</td>
+                        <td>40</td>
+                        <td>165</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Warrior</td>
+                        <td>30</td>
+                        <td>25</td>
+                        <td>35</td>
+                        <td>15</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>165</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">Wizard</td>
+                        <td>30</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>15</td>
+                        <td>50</td>
+                        <td>25</td>
+                        <td>160</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <br>
+        <p>Warning: This site is not maintained by or affiliated with Score Match! nor First Touch Games. Data may be inaccurate, if so please report the issue to <a href="mailto:amine@zaine.me">me</a> by email.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.20.2/dist/extensions/sticky-header/bootstrap-table-sticky-header.js"></script> -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>

@@ -1,0 +1,9 @@
+.fix-header{
+    position:sticky;
+    top: 0 ;
+}
+
+#data tr.highlight,
+#data tr.highlight:hover {
+    font-weight: bold !important;
+}
